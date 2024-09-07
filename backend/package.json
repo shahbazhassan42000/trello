@@ -4,7 +4,7 @@
   "description": "REST API for user.",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon src --exec \\\"babel-node src\\\"",
+    "dev": "NODE_ENV=development nodemon src --exec \"./node_modules/.bin/babel-node src\"",
     "build": "rimraf dist && babel src -s -D -d dist",
     "start": "NODE_ENV=production node ./dist/index.js",
     "lint": "eslint src/**/*.js",
@@ -24,13 +24,14 @@
   "lint:fix": "eslint --fix .",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shahbazhassan42000/user-rest-api-crud.git"
+    "url": "git@github.com:shahbazhassan42000/trello.git"
   },
   "author": "shahbazhassan42000@gmail.com",
-  "homepage": "https://github.com/shahbazhassan42000/user-rest-api-crud.git#readme",
+  "homepage": "git@github.com:shahbazhassan42000/trello.git#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
+    "dotenv": "^16.4.5",
     "express": "^4.16.2",
     "express-jwt": "^7.7.2",
     "husky": "^8.0.1",

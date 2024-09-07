@@ -5,6 +5,7 @@ import * as actions from "../../store/actions";
 import {headers, loadBoards, loadingToggle} from "../../store/cards/cardSlice";
 import {user} from "../../App";
 import {useDispatch} from "react-redux";
+import { API_URL } from "../../utils/utils";
 
 const CreateBoard = ({setCreateBoard}) => {
     const boardPrevRef = useRef(null);
@@ -126,7 +127,7 @@ const handleFormSubmission = (e, bgRef, setCreateBoard,dispatch) => {
     const title = form.get('boardTitle');
     const bg = bgRef.style.backgroundColor;
     axios.request({
-        baseURL: 'http://localhost:8080/api',
+        baseURL: API_URL,
         url:'/board',
         method:'post',
         headers,

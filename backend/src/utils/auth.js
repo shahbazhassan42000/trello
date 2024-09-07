@@ -1,5 +1,6 @@
-import config from '../config';
+import dotenv from 'dotenv';
 const { expressjwt: jwt } = require("express-jwt");
+dotenv.config();
 
 function getTokenFromHeader(req) {
   console.log(req.headers);
@@ -13,7 +14,7 @@ function getTokenFromHeader(req) {
 
 let auth = {
   required: jwt({
-    secret: config.secretKey,
+    secret: process.env.JWT_SECRET,
     userProperty: 'payload',
     getToken: getTokenFromHeader,
     algorithms: ['HS256']

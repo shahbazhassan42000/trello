@@ -1,7 +1,4 @@
 import jwt from 'jsonwebtoken';
-import config from '../config';
-
-const { secretKey } = config;
 
 export default {
   authenticate(req, res, next) {
@@ -10,7 +7,7 @@ export default {
     if (!token) {
       return res.status(401).json({ message: 'Unauthenticated' });
     }
-    jwt.verify(token, secretKey, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
       if (err) {
         return res.status(401).json({ message: 'Unauthenticated' });
       }

@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
-import config from '../config';
 
 
 const userSchema = new mongoose.Schema({
@@ -60,7 +59,7 @@ userSchema.methods.generateJWT = function () {
             username: this.username,
             expiryDate: parseInt(expiryDate.getTime() / 1000)
         }
-        , config.secretKey);
+        , process.env.JWT_SECRET);
 };
 
 mongoose.model('users', userSchema);

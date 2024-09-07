@@ -1,12 +1,13 @@
 import axios from "axios";
 import * as actions from "../actions"
+import { API_URL } from "../../utils/utils";
 
 const api = ({dispatch}) => next => action => {
     if (action.type !== actions.apiCallBegan.type) return next(action);
     next(action);
     const {url, method, data, onSuccess, onError, headers} = action.payload;
     axios.request({
-        baseURL: 'http://localhost:8080/api',
+        baseURL: API_URL,
         url,
         method,
         headers,

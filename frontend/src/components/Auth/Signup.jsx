@@ -1,5 +1,6 @@
 import {useState} from "react";
 import Loading from "../Loading";
+import { API_URL } from "../../utils/utils";
 
 const Signup = () => {
     const [msg, setMsg] = useState({show: false, msg: "", type: "general"});
@@ -65,7 +66,7 @@ const handleSignup = async (e, setMsg,setLoading) => {
         setLoading(true);
         const reqBody = JSON.stringify({user: formObject});
         console.log("Req Body: ", reqBody);
-        const url = "http://localhost:8080/api/user/signup";
+        const url = `${API_URL}/user/signup`;
         await fetch(url, {
             method: 'post',
             body: reqBody,

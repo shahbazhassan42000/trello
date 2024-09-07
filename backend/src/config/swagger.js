@@ -1,4 +1,3 @@
-import config from './index';
 
 const swaggerDefinition = {
   info: {

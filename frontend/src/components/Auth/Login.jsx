@@ -1,6 +1,7 @@
 import {togglePasswd} from "./Signup";
 import {useState} from "react";
 import Loading from "../Loading";
+import { API_URL } from "../../utils/utils";
 
 const Login = () => {
     const [msg, setMsg] = useState({show: false, msg: "", type: "error"});
@@ -48,7 +49,7 @@ const handleLogin = async (e, setMsg,setLoading) => {
     setLoading(true);
     const reqBody = JSON.stringify({user: formObject});
     console.log("Req Body: ", reqBody);
-    const url = "http://localhost:8080/api/user/login";
+    const url = `${API_URL}/user/login`;
     await fetch(url, {
         method: 'post',
         body: reqBody,
